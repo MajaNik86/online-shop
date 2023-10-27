@@ -27,7 +27,7 @@ app.use(expressSession(sessionConfig))
 
 app.use(csrf());
 app.use(addCsrfTokenMiddleware);
-app.use(checkAuthStatusMiddleware)
+app.use(checkAuthStatusMiddleware);
 
 app.use(baseRoutes);
 app.use(authRoutes);

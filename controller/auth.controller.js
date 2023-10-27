@@ -25,7 +25,7 @@ async function login(req,res){
   const user = new User(req.body.email,req.body.password)
   const existingUser = await user.getUserWithSameEmail();
   if(!existingUser){
-    res.redirect('/login')
+    res.redirect('/login');
     return;
   }
 const passwordIsCorrect = await user.comparePassword(existingUser.password);
@@ -38,4 +38,15 @@ authUtil.createUserSession(req,existingUser,function(){
 });
 }
 
-module.exports = { getSignup: getSignup, getLogin: getLogin, signup: signup,login:login };
+function logout(req, res) {
+  authUtil.destroyUserAuthSession(req);
+  res.redirect('/');
+}
+
+module.exports = {
+  getSignup: getSignup,
+  getLogin: getLogin,
+  signup: signup,
+  login: login,
+  logout: logout
+};

@@ -15,7 +15,7 @@ const MongoDbStore = mongoDbStore(expressSession);
 
 function createSessionConfig() {
     return { 
-        secret: 'some-super-secret-long-string', 
+        secret: 'super-secret', 
         resave: false, 
         saveUninitialized: false,
         store: createSessionStore(),
