@@ -33,6 +33,7 @@ input {
   justify-content: space-around;
 }
 
+
 @media (max-width: 48rem){
     .toggle-login-signup{
         margin: 0 auto;
