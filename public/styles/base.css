@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Flex", sans-serif;
 }
 
 body {
@@ -29,6 +29,31 @@ a {
   color:rgb(37, 34, 31);
 }
 
+.btn{
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2px;
+  border:1px solid rgb(37, 34, 31);
+  background-color: transparent;
+  color: rgb(99, 92, 86);
+}
+
+.btn:hover, .btn:active{
+  background-color: rgb(99, 92, 86);
+  color: rgb(243, 236, 230);
+  border: 1px solid rgb(99, 92, 86);
+}
 
 
+.btn-alt{
+  background-color: rgb(99, 92, 86);
+  color: rgb(243, 236, 230);
+  border: 1px solid rgb(99, 92, 86);
+}
+.btn-alt:hover , .btn-alt:active{
+  color: rgb(99, 92, 86);
+  background-color: rgb(243, 236, 230);
+  border:1px solid rgb(37, 34, 31);
+}
 

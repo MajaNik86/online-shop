@@ -1,0 +1,47 @@
+main {
+  font-family: "Roboto Flex", sans-serif;
+}
+form {
+  max-width: 25rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+form h1 {
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+label {
+  font-family: "Roboto Flex", sans-serif;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgb(37, 34, 31);
+}
+input {
+  font-family: "Roboto Flex", sans-serif;
+  padding: 0.5rem;
+  border-radius: 2px;
+  border: 1px solid rgb(37, 34, 31);
+  width: 90%;
+  margin-bottom: 1rem;
+}
+
+.toggle-login-signup {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 48rem){
+    .toggle-login-signup{
+        margin: 0 auto;
+        flex-direction: column;
+        max-width: 10rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .toggle-login-signup .btn, .toggle-login-signup .btn-alt{
+margin-bottom: 1rem;
+    }
+} 

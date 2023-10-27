@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/navigation.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <nav id="above-nav">
+      <span id="p">Free shipping on orders over $200</span>
+    </nav>
+    <%-include('../../shared/includes/header')%>
+    <main>
+      <form action="" method="">
+        <h1>Login</h1>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <div class="toggle-login-signup">
+          <button class="btn btn-alt">Login</button>
+          <button class="btn"><a href="/signup">Switch to signup</a></button>
+        </div>
+      </form>
+    </main>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>
