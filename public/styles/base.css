@@ -57,3 +57,17 @@ a {
   border:1px solid rgb(37, 34, 31);
 }
 
+.alert {
+  border-radius: 6px;
+  background-color:rgb(255, 192, 180);
+  color: rgb(199, 51, 15);
+  padding: 1rem
+}
+.alert h2 {
+  font-size: 1rem;
+  margin: 0.25rem 0 ; 
+  text-transform: uppercase;
+}
+.alert p {
+  margin: 0.5rem 0;
+}
