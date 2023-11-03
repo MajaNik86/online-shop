@@ -25,15 +25,15 @@
         <input type="hidden" name="_csrf" value="<%=locals.csrfToken%>">
         <div>
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" />
+          <input type="email" id="email" name="email" required />
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" />
+          <input type="password" id="password" name="password" required />
         </div>
         <div class="toggle-login-signup">
           <button class="btn btn-alt">Login</button>
-          <button class="btn"><a href="/signup">Switch to signup</a></button>
+          <button class="btn btn-alt"><a href="/signup">Switch to signup</a></button>
         </div>
       </form>
     </main>
