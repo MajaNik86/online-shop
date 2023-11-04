@@ -24,10 +24,19 @@
   <body>
     <%-include('../../shared/includes/header')%>
     <main>
-      <form action="/admin/products?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+      <form
+        action="/admin/products?_csrf=<%= locals.csrfToken %>"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         <div>
           <label for="title">Title</label>
-          <input type="text" id="title" name="title" required />
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+          />
         </div>
         <div id="image-upload-control">
           <div>
@@ -39,6 +48,15 @@
               accept="image/png,image/jpg"
             />
           </div>
+        </div>
+        <div>
+          <label for="summary">Summary</label>
+          <input
+            type="text"
+            id="summay"
+            name="summary"
+            required
+          />
         </div>
         <div>
           <label for="price">Price</label>
