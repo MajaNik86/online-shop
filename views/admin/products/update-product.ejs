@@ -19,17 +19,13 @@
       rel="stylesheet"
     />
 
-    <title>Add New Product</title>
+    <title>Update Product</title>
   </head>
   <body>
     <%-include('../../shared/includes/header')%>
     <main>
-      <%-include('./includes/product-form',{submitPath:'/admin/products',product:{
-        title:'',
-        summary:'',
-        price:'',
-        description:''
-      }})%>
+        <h1>Update Product</h1>
+        <%-include('./includes/product-form',{submitPath:'/admin/products'+product.id, product:product})%>
     </main>
     <script src="/scripts/script.js"></script>
   </body>
