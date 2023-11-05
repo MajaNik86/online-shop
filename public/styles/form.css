@@ -2,7 +2,7 @@ main {
   font-family: "Roboto Flex", sans-serif;
 }
 form {
-  max-width: 25rem;
+  max-width: 30rem;
   margin: 2rem auto;
   text-align: center;
 }
@@ -17,7 +17,8 @@ label {
   margin-bottom: 0.5rem;
   color: rgb(37, 34, 31);
 }
-input {
+
+input,textarea {
   font-family: "Roboto Flex", sans-serif;
   padding: 0.5rem;
   border-radius: 2px;
@@ -33,6 +34,25 @@ input {
   justify-content: space-around;
 }
 
+#image-upload-control{
+  display: flex;
+  align-items: center;
+
+}
+
+#image-upload-control #image{
+  border:none
+}
+#image-upload-control input{
+  max-width: 15rem;
+}
+#image-upload-control  img{
+  display: none;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
 
 @media (max-width: 48rem){
     .toggle-login-signup{
