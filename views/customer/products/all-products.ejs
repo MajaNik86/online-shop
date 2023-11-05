@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/navigation.css">
+    <link rel="stylesheet" href="/styles/products.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400&display=swap" rel="stylesheet">
+    
+    <title>List of Products</title>
+</head>
+<body>
+    <nav id="above-nav">
+        <span id="p">Free shipping on orders over $200</span>
+    </nav>
+    <%-include('../../shared/includes/header')%>
+    <main>
+        <h1>All products</h1>
+        <ul id="products-grid">
+        <% for(const product of products){%>
+
+    <li id="product-li-article"><%- include('../../shared/includes/product-item', { product: product }) %></li>
+            <%}%>
+        </ul>
+    </main>
+    <script src="/scripts/script.js"></script>
+</body>
+</html>
