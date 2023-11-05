@@ -73,6 +73,11 @@ await db.getDb().collection('products').updateOne({_id:productId},{
     }
   }
 
+  remove(){
+    const productId = new mongodb.ObjectId(this.id)
+   return  db.getDb().collection('products').deleteOne({_id:productId})
+  }
+
   replaceImage(newImage) {
     this.image = newImage; 
     this.updateImageData();
