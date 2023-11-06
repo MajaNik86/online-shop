@@ -4,7 +4,7 @@
         <p>$<span class="cart-item-price"><%=item.totalPrice.toFixed(2)%></span> <span class="cart-product-price"> ($<%=item.product.price.toFixed(2)%>)</span></p>
     </div>
     <div class="cart-item-management">
-        <input type="number" value="<%item.totalQuantity%>" required>
+        <input type="number" value="<%=item.quantity%>" required>
         <button class="btn btn-alt">Update</button>
     </div>
 
