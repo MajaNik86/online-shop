@@ -7,9 +7,11 @@ function initializeCart(req, res, next) {
     cart = new Cart();
   }else{
     const sessionCart = req.session.cart;
-    cart = new Cart(sessionCart.items,sessionCart.totalQuantity,sessionCart.totalPrice)
+    cart = new Cart(sessionCart.items,sessionCart.totalQuantity,sessionCart.totalPrice);
+    
   }
   res.locals.cart = cart;
+  console.log(res.locals.cart)
   next();
 }
 

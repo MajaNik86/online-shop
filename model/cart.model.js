@@ -22,7 +22,7 @@ class Cart {
             return
         }
     }
-    this.items.push(product);
+    this.items.push(cartItem);
     this.totalQuantity++;
     this.totalPrice += product.price;
   }

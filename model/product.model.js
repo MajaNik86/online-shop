@@ -24,12 +24,11 @@ class Product {
     }
     const product = await db
       .getDb()
-      .collection('products')
+      .collection("products")
       .findOne({ _id: prodId });
 
     if (!product) {
-      const error = new Error('Could not find product with provided id.');
-      console.log('Could not find product with provided id.')
+      const error = new Error("Could not find product with provided id.");
       error.code = 404;
       throw error;
     }
@@ -59,28 +58,30 @@ class Product {
       image: this.image,
     };
 
-    if(this.id){
-        const productId = new mongodb.ObjectId(this.id);
+    if (this.id) {
+      const productId = new mongodb.ObjectId(this.id);
 
-        if(!this.image){
-delete productData.image
+      if (!this.image) {
+        delete productData.image;
+      }
+      await db.getDb().collection("products").updateOne(
+        { _id: productId },
+        {
+          $set: productData,
         }
-await db.getDb().collection('products').updateOne({_id:productId},{
-    $set:productData
-})
-    }else{
-
-        await db.getDb().collection("products").insertOne(productData);
+      );
+    } else {
+      await db.getDb().collection("products").insertOne(productData);
     }
   }
 
   remove() {
     const productId = new mongodb.ObjectId(this.id);
-    return db.getDb().collection('products').deleteOne({ _id: productId });
+    return db.getDb().collection("products").deleteOne({ _id: productId });
   }
 
   replaceImage(newImage) {
-    this.image = newImage; 
+    this.image = newImage;
     this.updateImageData();
   }
 }
