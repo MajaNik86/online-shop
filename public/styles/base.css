@@ -71,3 +71,11 @@ a {
 .alert p {
   margin: 0.5rem 0;
 }
+
+.badge{
+  margin-left: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 10rem;
+  background-color: rgb(99, 92, 86);
+  color: rgb(243, 236, 230);
+}
