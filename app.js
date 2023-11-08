@@ -16,7 +16,8 @@ const baseRoutes = require('./router/base.router');
 const authRoutes = require('./router/auth.router');
 const adminRoutes = require('./router/admin.router');
 const productsRoutes = require('./router/products.router');
-const cartRoutes = require('./router/cart.router')
+const cartRoutes = require('./router/cart.router');
+const ordersRoutes = require('./router/orders.router'); 
 
 const app = express();
 
@@ -41,7 +42,8 @@ app.use(baseRoutes);
 app.use(authRoutes);
 app.use(productsRoutes);
 app.use('/cart',cartRoutes);
-app.use(protectRoutesMiddleware)
+app.use(protectRoutesMiddleware);
+app.use('/orders',ordersRoutes);
 app.use('/admin',adminRoutes)
 
 app.use(errorHandleMiddleware)
