@@ -6,7 +6,7 @@ const updateOrderFormElements = document.querySelectorAll(
     event.preventDefault();
     const form = event.target;
   
-    const formData = new FormData(form);
+    const formData = new FormData(form); //gives us obj so we can call get method to get the different values that are part of that form 
     const newStatus = formData.get('status');
     const orderId = formData.get('orderid');
     const csrfToken = formData.get('_csrf');
