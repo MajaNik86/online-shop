@@ -49,6 +49,7 @@ class Product {
     this.imageUrl = `/products/assets/images/${this.image}`;
   }
 
+  
   async save() {
     const productData = {
       title: this.title,
