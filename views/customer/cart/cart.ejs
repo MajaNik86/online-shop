@@ -28,11 +28,12 @@
 
       </ul>
       <div id="cart-total">
-        <p>Total: $ <%=locals.cart.totalPrice%></p>
+        <p>Total: $ <span id="cart-total-price"><%=locals.cart.totalPrice%></span></p>
         <button class="btn">Buy Products</button>
       </div>
     </main>
 
     <script src="/scripts/script.js"></script>
+    <script src="/scripts/cart-item-management.js"></script>
   </body>
 </html>
