@@ -1,29 +1,78 @@
-const mongodb = require('mongodb')
-const db = require('../data/database')
+const mongodb = require("mongodb");
+const db = require("../data/database");
 
 class Order {
-  constructor(cart,userData,status='pending',date,orderId) {
+  constructor(cart, userData, status = "pending", date, orderId) {
     this.productData = cart;
     this.userData = userData;
     this.status = status;
-    this.date= new Date(date);
-    if(this.date){
-        this.formattedDate = this.date.toLocaleDateString('en-US',{
-            weekday:'short',
-            day:'numeric',
-            month:'long',
-            year:'numeric'
-        })
+    this.date = new Date(date);
+    if (this.date) {
+      this.formattedDate = this.date.toLocaleDateString("en-US", {
+        weekday: "short",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
     }
-    this.id = orderId
+    this.id = orderId;
+  }
+  static transformOrderDocument(orderDoc) {
+    return new Order(
+      orderDoc.productData,
+      orderDoc.userData,
+      orderDoc.status,
+      orderDoc.date,
+      orderDoc._id
+    );
   }
 
-  save(){
+  static transformOrderDocuments(orderDocs) {
+    return orderDocs.map(this.transformOrderDocument);
+  }
+
+  findAll() {
+    const orders = db
+      .getDb()
+      .collection("orders")
+      .find()
+      .sort({ _id: -1 })
+      .toArray();
+    return this.transformOrderDocuments(orders);
+  }
+
+  static async findAllOrdersForUser(userId) {
+    const uid = new mongodb.ObjectId(userId);
+
+    const orders = await db
+      .getDb()
+      .collection("orders")
+      .find({ "userData._id": uid })
+      .sort({ _id: -1 })
+      .toArray();
+
+    return this.transformOrderDocuments(orders);
+  }
+
+  static async findById(orderId) {
+    const order = await db
+      .getDb()
+      .collection("orders")
+      .findOne({ _id: new mongodb.ObjectId(orderId) });
+
+    return this.transformOrderDocument(order);
+  }
+
+  save() {
     if (this.id) {
-        //if we update order
-      
+      //if we update order
+      const orderId = new mongodb.ObjectId(this.id);
+      return db
+        .getDb()
+        .collection("orders")
+        .updateOne({ _id: orderId }, { $set: { status: this.status } });
     } else {
-        //if we are creating new order
+      //if we are creating new order
       const orderDocument = {
         userData: this.userData,
         productData: this.productData,
@@ -31,7 +80,7 @@ class Order {
         status: this.status,
       };
 
-      return db.getDb().collection('orders').insertOne(orderDocument);
+      return db.getDb().collection("orders").insertOne(orderDocument);
     }
   }
 }
